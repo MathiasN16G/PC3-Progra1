@@ -16,10 +16,11 @@ namespace PC3_Progra1.Controllers
             _apiService = apiService;
         }
 
+        // Mostrar todos los posts enriquecidos con autor y comentarios
         public async Task<IActionResult> Index()
         {
-            var posts = await _apiService.GetPostsAsync();
-            return View(posts);
+            var postsCompletos = await _apiService.GetPostsCompletosAsync();
+            return View(postsCompletos);
         }
 
         public IActionResult Privacy()
