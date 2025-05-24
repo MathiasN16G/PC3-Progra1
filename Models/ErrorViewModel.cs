@@ -1,8 +1,9 @@
-namespace PC3_Progra.Models;
-
-public class ErrorViewModel
+namespace PC3_Progra1.Models
 {
-    public string? RequestId { get; set; }
+    public class ErrorViewModel
+    {
+        public string? RequestId { get; set; }
 
-    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+    }
 }

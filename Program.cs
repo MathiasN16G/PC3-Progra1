@@ -2,6 +2,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient<PC3_Progra1.Services.ApiService>();
+
 
 var app = builder.Build();
 

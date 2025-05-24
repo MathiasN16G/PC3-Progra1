@@ -1,8 +1,29 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model List<PC3_Progra1.Models.DetalleViewModel>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@foreach (var item in Model)
+{
+    <div class="card mb-4">
+        <div class="card-body">
+            <h4>@item.Post.title</h4>
+            <p>@item.Post.body</p>
+
+            <p><strong>Autor:</strong> @item.Autor.name - @item.Autor.email</p>
+
+            <h5>Comentarios:</h5>
+            <ul>
+                @foreach (var comentario in item.Comentarios)
+                {
+                    <li>
+                        <strong>@comentario.name</strong> (@comentario.email): @comentario.body
+                    </li>
+                }
+            </ul>
+
+            <form asp-controller="Feedback" asp-action="Enviar" method="post">
+                <input type="hidden" name="postId" value="@item.Post.id" />
+                <button type="submit" name="sentimiento" value="like" class="btn btn-success">👍 Me gustó</button>
+                <button type="submit" name="sentimiento" value="dislike" class="btn btn-danger">👎 No me gustó</button>
+            </form>
+        </div>
+    </div>
+}
