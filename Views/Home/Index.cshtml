@@ -1,29 +1,46 @@
 ﻿@model List<PC3_Progra1.Models.DetalleViewModel>
 
+<h2 class="text-center mb-4">Noticias con Reacciones</h2>
+
+@if (TempData["Mensaje"] != null && TempData["PostReaccionado"] != null)
+{
+    <div class="alert alert-info text-center">@TempData["Mensaje"]</div>
+}
+
 @foreach (var item in Model)
 {
-    <div class="card mb-4">
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">@item.Post.title</h5>
+        </div>
         <div class="card-body">
-            <h4>@item.Post.title</h4>
-            <p>@item.Post.body</p>
+            <p class="card-text">@item.Post.body</p>
 
-            <p><strong>Autor:</strong> @item.Autor.name - @item.Autor.email</p>
+            <p><strong>✍ Autor:</strong> @item.Autor.name (<i>@item.Autor.email</i>)</p>
 
-            <h5>Comentarios:</h5>
-            <ul>
+            <hr />
+            <h6 class="text-muted"> Comentarios (@item.Comentarios.Count):</h6>
+            <ul class="list-group list-group-flush">
                 @foreach (var comentario in item.Comentarios)
                 {
-                    <li>
-                        <strong>@comentario.name</strong> (@comentario.email): @comentario.body
+                    <li class="list-group-item">
+                        <strong>@comentario.name</strong> <span class="text-muted">(@comentario.email)</span><br />
+                        @comentario.body
                     </li>
                 }
             </ul>
 
-            <form asp-controller="Feedback" asp-action="Enviar" method="post">
+            <hr />
+            <form asp-controller="Feedback" asp-action="Enviar" method="post" class="d-flex gap-2 mt-3">
                 <input type="hidden" name="postId" value="@item.Post.id" />
                 <button type="submit" name="sentimiento" value="like" class="btn btn-success">👍 Me gustó</button>
                 <button type="submit" name="sentimiento" value="dislike" class="btn btn-danger">👎 No me gustó</button>
             </form>
+
+            @if (TempData["PostReaccionado"] != null && (int)TempData["PostReaccionado"] == item.Post.id)
+            {
+                <div class="alert alert-info mt-3">@TempData["Mensaje"]</div>
+            }
         </div>
     </div>
 }
