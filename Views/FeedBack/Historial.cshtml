@@ -1,0 +1,25 @@
+@model List<PC3_Progra1.Models.Feedback>
+
+<h2>Historial de Reacciones</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>PostId</th>
+            <th>Sentimiento</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.PostId</td>
+                <td>@(item.Sentimiento == "like" ? "👍" : "👎")</td>
+                <td>@item.Fecha.ToLocalTime().ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>
