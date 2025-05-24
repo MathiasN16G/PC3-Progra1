@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PC3-Progra")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8e40878b4da278f5466dbb8cc75c58751a9597e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1303a1d64e21ea50e666f22288f2ba450a34bd4a")]
 [assembly: System.Reflection.AssemblyProductAttribute("PC3-Progra")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PC3-Progra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
