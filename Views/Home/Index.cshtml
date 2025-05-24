@@ -11,6 +11,12 @@
 
             <h5>Comentarios:</h5>
             <ul>
+                @if (TempData["PostReaccionado"] != null && (int)TempData["PostReaccionado"] == item.Post.id)
+                    {
+                        <div class="alert alert-info">@TempData["Mensaje"]</div>
+                    }
+
+
                 @foreach (var comentario in item.Comentarios)
                 {
                     <li>
