@@ -19,5 +19,5 @@ COPY --from=build /app .
 
 EXPOSE 80
 
-ENTRYPOINT ["dotnet", "PC3-Progra.dll"]
+ENTRYPOINT ["dotnet", "PC3-Progra1.dll"]
 
